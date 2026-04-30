@@ -1,6 +1,6 @@
 # Ramey & Hiba Wedding Website
 
-The website lives at **https://dahlgood.github.io/ramey-hiba-wedding/**.
+The website lives at **https://rameyandhiba.com**.
 
 It's built with [Astro](https://astro.build) and auto-deploys to GitHub Pages every time changes are pushed to the `main` branch.
 
