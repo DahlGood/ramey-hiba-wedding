@@ -27,10 +27,19 @@ All colors and fonts are defined at the top of `src/styles/global.css` in the `:
 
 If you swap a font, also update the Google Fonts link in `src/layouts/BaseLayout.astro` so the new font actually loads.
 
-### Add the Things to Do or Q + A pages back
+### Add the Q + A page back
 
-1. In `src/components/SiteHeader.astro`, uncomment the lines for the page in the `navLinks` array.
-2. Create a matching file in `src/pages/` (e.g. `things-to-do.astro` or `qa.astro`). Copy `src/pages/travel.astro` as a starting template.
+1. In `src/components/SiteHeader.astro`, uncomment the line for `qa` in the `navLinks` array.
+2. Create `src/pages/qa.astro`. Copy `src/pages/travel.astro` as a starting template.
+
+### Add a new image
+
+1. Drop the image file into `public/images/` (create the folder if missing). Any file there is served at `/images/<filename>` on the live site.
+2. In the page where you want the image, add an `<img>` tag like:
+   ```html
+   <img class="attraction-image" src={`${base}images/your-file.png`} alt="A short description" loading="lazy" />
+   ```
+   (See `src/pages/things-to-do.astro` for a working example.)
 
 ### Set up a custom domain
 
