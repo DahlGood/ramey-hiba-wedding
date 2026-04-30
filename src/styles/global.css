@@ -279,6 +279,22 @@ p:last-child {
 }
 
 /* =====================================================================
+   Section meta (address, phone) shown beneath an attraction title
+   ===================================================================== */
+.section-meta {
+  font-family: var(--font-serif);
+  color: var(--color-fg-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  margin: -0.75rem 0 1.25rem;
+  line-height: 1.4;
+}
+
+.section-meta__line {
+  margin: 0;
+}
+
+/* =====================================================================
    Footer
    ===================================================================== */
 .site-footer {
