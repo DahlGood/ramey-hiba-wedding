@@ -1,0 +1,37 @@
+---
+// Nav links rendered at the top of every page. To re-add the
+// "Things to Do" or "Q + A" pages later, uncomment them below
+// and create matching files in src/pages/.
+const navLinks = [
+  { href: '/',        label: 'Home' },
+  { href: '/travel',  label: 'Travel Information' },
+  // { href: '/things-to-do', label: 'Things to Do' },
+  // { href: '/qa',           label: 'Q + A' },
+];
+
+const { pathname } = Astro.url;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+
+function isActive(href: string) {
+  const target = (base + href).replace(/\/$/, '') || '/';
+  const current = pathname.replace(/\/$/, '') || '/';
+  return target === current;
+}
+---
+
+<header class="site-header">
+  <h1 class="site-header__title">Ramey &amp; Hiba</h1>
+  <p class="site-header__tagline">May 7, 2026 &nbsp;&bull;&nbsp; Rabat, Morocco</p>
+
+  <nav class="site-nav" aria-label="Primary">
+    {navLinks.map(link => (
+      <a
+        class="site-nav__link"
+        href={`${base}${link.href}`}
+        aria-current={isActive(link.href) ? 'page' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>

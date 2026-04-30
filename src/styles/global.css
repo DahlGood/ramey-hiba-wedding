@@ -1,0 +1,301 @@
+/* =====================================================================
+   Design tokens
+   --------------------------------------------------------------------
+   Change a value here and the entire site updates. Colors and fonts
+   are intentionally centralized so styling tweaks don't require
+   touching individual pages or components.
+   ===================================================================== */
+:root {
+  /* Colors */
+  --color-bg: #2d4232;            /* deep forest green */
+  --color-fg: #e8dcb7;            /* warm cream */
+  --color-fg-muted: #c9bc95;      /* slightly dimmer cream for body copy */
+  --color-rule: #8a9483;          /* divider line */
+
+  /* Typography */
+  --font-script: 'Pinyon Script', 'Snell Roundhand', cursive;
+  --font-serif:  'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+
+  /* Layout */
+  --content-max: 760px;
+  --space-section: 4.5rem;
+  --space-block:   2.25rem;
+}
+
+/* =====================================================================
+   Base
+   ===================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;          /* ~17px */
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-fg);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--color-fg);
+}
+
+p {
+  margin: 0 0 1.25rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================================
+   Typography helpers
+   ===================================================================== */
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+}
+
+/* =====================================================================
+   Layout
+   ===================================================================== */
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  margin: var(--space-section) auto;
+  text-align: center;
+}
+
+.section--narrow {
+  max-width: 620px;
+}
+
+.eyebrow-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--color-rule);
+  margin: 1.5rem auto;
+  border: 0;
+}
+
+/* =====================================================================
+   Site header
+   ===================================================================== */
+.site-header {
+  text-align: center;
+  padding: 3rem 1.5rem 0.5rem;
+}
+
+.site-header__title {
+  font-family: var(--font-script);
+  font-size: clamp(3.25rem, 7vw, 5rem);
+  line-height: 1;
+  margin: 0;
+  font-weight: 400;
+}
+
+.site-header__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  margin: 1.25rem 0 0;
+  color: var(--color-fg);
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+  margin: 2.25rem 0 1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav__link {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav__link[aria-current="page"] {
+  border-bottom-color: var(--color-fg);
+}
+
+.site-nav__link:hover {
+  border-bottom-color: var(--color-fg);
+}
+
+/* =====================================================================
+   Date | Location split (home page)
+   ===================================================================== */
+.date-location {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 620px;
+  margin: var(--space-section) auto;
+  text-align: center;
+}
+
+.date-location__rule {
+  width: 1px;
+  height: 90px;
+  background: var(--color-rule);
+}
+
+.date-location__item {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+}
+
+@media (max-width: 540px) {
+  .date-location {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .date-location__rule {
+    width: 60px;
+    height: 1px;
+  }
+}
+
+/* =====================================================================
+   Section headings
+   ===================================================================== */
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+}
+
+.section-body {
+  color: var(--color-fg-muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* =====================================================================
+   Wedding day card
+   ===================================================================== */
+.wedding-day {
+  text-align: center;
+  margin: var(--space-section) auto;
+}
+
+.wedding-day__detail {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 0.4rem 0;
+}
+
+.wedding-day__venue {
+  margin-top: 1.75rem;
+}
+
+.wedding-day__address {
+  color: var(--color-fg-muted);
+  font-size: 0.95rem;
+}
+
+/* =====================================================================
+   Travel page sections
+   ===================================================================== */
+.tip {
+  margin: var(--space-block) auto;
+  max-width: 520px;
+  text-align: center;
+}
+
+.tip__heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.tip__body {
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+.recommendation {
+  margin: var(--space-block) auto 0;
+  text-align: center;
+}
+
+.recommendation__label {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+
+.recommendation__link {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+.site-footer {
+  text-align: center;
+  padding: var(--space-section) 1.5rem 3rem;
+}
+
+.site-footer__monogram {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.site-footer__date {
+  font-family: var(--font-serif);
+  letter-spacing: 0.18em;
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+}
