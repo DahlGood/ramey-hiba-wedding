@@ -20,6 +20,7 @@ const PAGES = [
 function App() {
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [page, setPage] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
   const mainRef = useRef(null);
 
   // Apply palette to root
@@ -45,7 +46,7 @@ function App() {
     return () => obs.disconnect();
   }, [page]);
 
-  const go = (id) => setPage(id);
+  const go = (id) => { setPage(id); setMenuOpen(false); };
 
   return (
     <div className="app" data-screen-label={`${page}`}>
@@ -74,8 +75,37 @@ function App() {
             ))}
           </nav>
           <div className="topbar__date">07 · 05 · 2026 &nbsp;·&nbsp; RABAT</div>
+          <button
+            className="topbar__menu-btn"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            <span className={menuOpen ? 'open' : ''} />
+            <span className={menuOpen ? 'open' : ''} />
+            <span className={menuOpen ? 'open' : ''} />
+          </button>
         </div>
       </header>
+
+      {/* MOBILE NAV OVERLAY */}
+      {menuOpen && (
+        <div className="mobile-nav" role="dialog" aria-label="Navigation">
+          <button className="mobile-nav__close" onClick={() => setMenuOpen(false)} aria-label="Close">✕</button>
+          <p className="mobile-nav__brand">RAMEY &amp; HIBA</p>
+          {PAGES.map((p) => (
+            <a
+              key={p.id}
+              className={`mobile-nav__link ${page === p.id ? 'is-active' : ''}`}
+              onClick={() => go(p.id)}
+              role="button"
+              tabIndex="0"
+            >
+              {p.label}
+            </a>
+          ))}
+          <p className="mobile-nav__date">07 · 05 · 2026 · RABAT</p>
+        </div>
+      )}
 
       {/* PAGE */}
       <main className="page-wrap" ref={mainRef} key={page}>

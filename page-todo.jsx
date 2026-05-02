@@ -80,8 +80,8 @@ function ThingsToDoPage({ frameStyle }) {
           <div className="todo-hero__media">
             <Frame
               variant="multifoil"
-              src="assets/hassan-mosque.png"
-              alt="Hassan Tower at sunset"
+              src="assets/things to do .jpeg"
+              alt="Things to do in Rabat"
               aspect={0.85}
               tone="gold"
               eager
