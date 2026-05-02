@@ -351,6 +351,62 @@ a.gold-link:hover { color: var(--cream); border-bottom-color: var(--gold); gap: 
   letter-spacing: 0.04em;
 }
 
+/* =====================================================================
+   CSS arch variants — border-radius clip + conic tile border
+   ===================================================================== */
+
+/* Arch shapes via border-radius — overflow:hidden clips the image */
+.mw-frame--horseshoe {
+  border-radius: 50% 50% 0 0 / 52% 52% 0 0;
+  overflow: hidden;
+}
+.mw-frame--keyhole {
+  border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+  overflow: hidden;
+}
+.mw-frame--soft {
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  overflow: hidden;
+}
+
+/* Gold arch border overlay — sits on top of the image, follows the arch */
+.mw-frame__border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 3;
+
+  /* Outer solid gold border */
+  border: 5px solid var(--gold);
+
+  /* Inner hairline using inset box-shadow */
+  box-shadow:
+    inset 0 0 0 2px rgba(201, 169, 97, 0.30),
+    inset 0 0 0 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Conic Moroccan tile accent — drawn as a ::before pseudo on the border div */
+.mw-frame__border::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: repeating-conic-gradient(
+    var(--gold)                                         0deg  15deg,
+    color-mix(in oklab, var(--gold) 55%, var(--cream))  15deg 30deg,
+    color-mix(in oklab, var(--gold) 25%, var(--bg-deep)) 30deg 45deg
+  );
+  /* Mask so only the border band (5px) is visible, not the center */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 5px;
+  opacity: 0.72;
+}
+
 /* striped placeholder art */
 .mw-placeholder {
   width: 100%;
@@ -1283,6 +1339,9 @@ a.gold-link:hover { color: var(--cream); border-bottom-color: var(--gold); gap: 
    Mobile — 640px
    ===================================================================== */
 @media (max-width: 640px) {
+  /* Hide flag image in Welcome section to prevent back-to-back photos with couple photo */
+  .welcome__media { display: none; }
+
   /* Show hamburger, hide desktop nav */
   .topbar__menu-btn { display: flex; }
   .topbar__nav { display: none; }

@@ -44,7 +44,7 @@ function ThingsToDoPage({ frameStyle }) {
     {
       id: 'botanical',
       tag: 'Nature · Garden',
-      title: 'Test Botanical Garden',
+      title: 'Botanical Garden',
       meta: ['Avenue de la Victoire, Rabat', '1–2 Hours'],
       body: `Tucked just outside the medina walls, the Jardins d'Essais Botaniques are a quiet, fragrant counterpoint to the city's stone and noise. Long reflecting pools mirror date palms and bougainvillea; gravel paths thread through Andalusian, Moroccan, and tropical gardens designed in the early 20th century. It is the perfect slow morning — a place to read, to drift, to find the city's softer rhythm before the wedding weekend begins.`,
       img: `${base}/botanical.png`,
