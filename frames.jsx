@@ -11,92 +11,98 @@ const FRAME_DEFS = (
     style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}
   >
     <defs>
-      {/* Keyhole / Moorish arch — pointed top, slight foot inset. viewBox 100x140 */}
+      {/* Moorish keyhole arch — circular arch above a narrow neck that widens to the jambs */}
       <clipPath id="frame-keyhole" clipPathUnits="objectBoundingBox">
         <path d="
           M 0.08 1
-          L 0.08 0.45
-          C 0.08 0.20, 0.30 0.02, 0.50 0.02
-          C 0.70 0.02, 0.92 0.20, 0.92 0.45
+          L 0.08 0.62
+          L 0.26 0.58
+          C 0.20 0.52, 0.17 0.44, 0.17 0.36
+          C 0.17 0.17, 0.32 0.05, 0.50 0.05
+          C 0.68 0.05, 0.83 0.17, 0.83 0.36
+          C 0.83 0.44, 0.80 0.52, 0.74 0.58
+          L 0.92 0.62
           L 0.92 1
           Z" />
       </clipPath>
 
-      {/* Horseshoe arch — wider rounded top that curves inward at base of arch */}
+      {/* Horseshoe arch — arch bulges outward past the jambs before returning, classic Moroccan */}
       <clipPath id="frame-horseshoe" clipPathUnits="objectBoundingBox">
         <path d="
-          M 0.06 1
-          L 0.06 0.50
-          C 0.06 0.42, 0.10 0.36, 0.16 0.34
-          C 0.10 0.28, 0.10 0.20, 0.16 0.14
-          C 0.24 0.05, 0.38 0.02, 0.50 0.02
-          C 0.62 0.02, 0.76 0.05, 0.84 0.14
-          C 0.90 0.20, 0.90 0.28, 0.84 0.34
-          C 0.90 0.36, 0.94 0.42, 0.94 0.50
-          L 0.94 1
-          Z" />
-      </clipPath>
-
-      {/* Ogee / multifoil arch — three lobes at top */}
-      <clipPath id="frame-multifoil" clipPathUnits="objectBoundingBox">
-        <path d="
-          M 0.05 1
-          L 0.05 0.55
-          C 0.05 0.42, 0.12 0.34, 0.22 0.34
-          C 0.28 0.34, 0.32 0.32, 0.32 0.26
-          C 0.32 0.14, 0.40 0.04, 0.50 0.04
-          C 0.60 0.04, 0.68 0.14, 0.68 0.26
-          C 0.68 0.32, 0.72 0.34, 0.78 0.34
-          C 0.88 0.34, 0.95 0.42, 0.95 0.55
-          L 0.95 1
-          Z" />
-      </clipPath>
-
-      {/* Pointed lancet arch — tall and slender */}
-      <clipPath id="frame-lancet" clipPathUnits="objectBoundingBox">
-        <path d="
           M 0.10 1
-          L 0.10 0.50
-          C 0.10 0.30, 0.30 0.02, 0.50 0.02
-          C 0.70 0.02, 0.90 0.30, 0.90 0.50
+          L 0.10 0.52
+          C 0.04 0.46, 0.03 0.34, 0.07 0.26
+          C 0.13 0.11, 0.30 0.04, 0.50 0.04
+          C 0.70 0.04, 0.87 0.11, 0.93 0.26
+          C 0.97 0.34, 0.96 0.46, 0.90 0.52
           L 0.90 1
           Z" />
       </clipPath>
 
-      {/* Eight-point star (Zellige khatim) */}
-      <clipPath id="frame-star" clipPathUnits="objectBoundingBox">
+      {/* Multifoil / trefoil arch — three distinct cusped lobes, Moroccan zellige style */}
+      <clipPath id="frame-multifoil" clipPathUnits="objectBoundingBox">
         <path d="
-          M 0.50 0.02
-          L 0.60 0.18
-          L 0.78 0.10
-          L 0.78 0.28
-          L 0.95 0.36
-          L 0.82 0.50
-          L 0.95 0.64
-          L 0.78 0.72
-          L 0.78 0.90
-          L 0.60 0.82
-          L 0.50 0.98
-          L 0.40 0.82
-          L 0.22 0.90
-          L 0.22 0.72
-          L 0.05 0.64
-          L 0.18 0.50
-          L 0.05 0.36
-          L 0.22 0.28
-          L 0.22 0.10
-          L 0.40 0.18
+          M 0.06 1
+          L 0.06 0.60
+          C 0.06 0.52, 0.10 0.46, 0.18 0.44
+          C 0.24 0.42, 0.28 0.46, 0.28 0.52
+          C 0.30 0.46, 0.34 0.38, 0.40 0.32
+          C 0.43 0.18, 0.46 0.07, 0.50 0.07
+          C 0.54 0.07, 0.57 0.18, 0.60 0.32
+          C 0.66 0.38, 0.70 0.46, 0.72 0.52
+          C 0.72 0.46, 0.76 0.42, 0.82 0.44
+          C 0.90 0.46, 0.94 0.52, 0.94 0.60
+          L 0.94 1
           Z" />
       </clipPath>
 
-      {/* Soft rounded rectangle — gentle ornamental */}
+      {/* Ogee / keel arch — S-curve rising to a sharp point, Moroccan muqarnas style */}
+      <clipPath id="frame-lancet" clipPathUnits="objectBoundingBox">
+        <path d="
+          M 0.10 1
+          L 0.10 0.52
+          C 0.10 0.40, 0.20 0.30, 0.30 0.26
+          C 0.40 0.22, 0.44 0.14, 0.50 0.04
+          C 0.56 0.14, 0.60 0.22, 0.70 0.26
+          C 0.80 0.30, 0.90 0.40, 0.90 0.52
+          L 0.90 1
+          Z" />
+      </clipPath>
+
+      {/* Eight-point Zellige star (khatim) — Moroccan tilework geometry */}
+      <clipPath id="frame-star" clipPathUnits="objectBoundingBox">
+        <path d="
+          M 0.50 0.03
+          L 0.58 0.20
+          L 0.75 0.12
+          L 0.74 0.30
+          L 0.92 0.35
+          L 0.80 0.50
+          L 0.92 0.65
+          L 0.74 0.70
+          L 0.75 0.88
+          L 0.58 0.80
+          L 0.50 0.97
+          L 0.42 0.80
+          L 0.25 0.88
+          L 0.26 0.70
+          L 0.08 0.65
+          L 0.20 0.50
+          L 0.08 0.35
+          L 0.26 0.30
+          L 0.25 0.12
+          L 0.42 0.20
+          Z" />
+      </clipPath>
+
+      {/* Rounded arch — gentle Moroccan riad window shape */}
       <clipPath id="frame-soft" clipPathUnits="objectBoundingBox">
         <path d="
-          M 0.04 0.50
-          C 0.04 0.10, 0.12 0.02, 0.50 0.02
-          C 0.88 0.02, 0.96 0.10, 0.96 0.50
-          C 0.96 0.90, 0.88 0.98, 0.50 0.98
-          C 0.12 0.98, 0.04 0.90, 0.04 0.50
+          M 0.06 1
+          L 0.06 0.46
+          C 0.06 0.22, 0.24 0.04, 0.50 0.04
+          C 0.76 0.04, 0.94 0.22, 0.94 0.46
+          L 0.94 1
           Z" />
       </clipPath>
 
@@ -112,17 +118,17 @@ const FRAME_DEFS = (
 // Same shape as the clipPath but rendered as stroke.
 const FRAME_OUTLINE_PATHS = {
   keyhole:
-    'M 8 100 L 8 45 C 8 20, 30 2, 50 2 C 70 2, 92 20, 92 45 L 92 100 Z',
+    'M 8 100 L 8 62 L 26 58 C 20 52, 17 44, 17 36 C 17 17, 32 5, 50 5 C 68 5, 83 17, 83 36 C 83 44, 80 52, 74 58 L 92 62 L 92 100 Z',
   horseshoe:
-    'M 6 100 L 6 50 C 6 42, 10 36, 16 34 C 10 28, 10 20, 16 14 C 24 5, 38 2, 50 2 C 62 2, 76 5, 84 14 C 90 20, 90 28, 84 34 C 90 36, 94 42, 94 50 L 94 100 Z',
+    'M 10 100 L 10 52 C 4 46, 3 34, 7 26 C 13 11, 30 4, 50 4 C 70 4, 87 11, 93 26 C 97 34, 96 46, 90 52 L 90 100 Z',
   multifoil:
-    'M 5 100 L 5 55 C 5 42, 12 34, 22 34 C 28 34, 32 32, 32 26 C 32 14, 40 4, 50 4 C 60 4, 68 14, 68 26 C 68 32, 72 34, 78 34 C 88 34, 95 42, 95 55 L 95 100 Z',
+    'M 6 100 L 6 60 C 6 52, 10 46, 18 44 C 24 42, 28 46, 28 52 C 30 46, 34 38, 40 32 C 43 18, 46 7, 50 7 C 54 7, 57 18, 60 32 C 66 38, 70 46, 72 52 C 72 46, 76 42, 82 44 C 90 46, 94 52, 94 60 L 94 100 Z',
   lancet:
-    'M 10 100 L 10 50 C 10 30, 30 2, 50 2 C 70 2, 90 30, 90 50 L 90 100 Z',
+    'M 10 100 L 10 52 C 10 40, 20 30, 30 26 C 40 22, 44 14, 50 4 C 56 14, 60 22, 70 26 C 80 30, 90 40, 90 52 L 90 100 Z',
   star:
-    'M 50 2 L 60 18 L 78 10 L 78 28 L 95 36 L 82 50 L 95 64 L 78 72 L 78 90 L 60 82 L 50 98 L 40 82 L 22 90 L 22 72 L 5 64 L 18 50 L 5 36 L 22 28 L 22 10 L 40 18 Z',
+    'M 50 3 L 58 20 L 75 12 L 74 30 L 92 35 L 80 50 L 92 65 L 74 70 L 75 88 L 58 80 L 50 97 L 42 80 L 25 88 L 26 70 L 8 65 L 20 50 L 8 35 L 26 30 L 25 12 L 42 20 Z',
   soft:
-    'M 4 50 C 4 10, 12 2, 50 2 C 88 2, 96 10, 96 50 C 96 90, 88 98, 50 98 C 12 98, 4 90, 4 50 Z',
+    'M 6 100 L 6 46 C 6 22, 24 4, 50 4 C 76 4, 94 22, 94 46 L 94 100 Z',
   square:
     'M 5 5 L 95 5 L 95 95 L 5 95 Z',
 };
@@ -136,7 +142,14 @@ const FRAME_VIEWBOX = { width: 100, height: 100 };
  * aspect:  width / height of the framed area (default 0.72 = arch portrait)
  * caption: optional small caption beneath the frame
  * tone:    'cream' | 'gold' | 'forest' — outline color
+ *
+ * horseshoe, keyhole, soft use CSS border-radius + conic tile border.
+ * multifoil, lancet, star use SVG clipPath + SVG stroke outline.
  */
+
+// Variants rendered with CSS border-radius instead of SVG clipPath
+const CSS_ARCH_VARIANTS = new Set(['horseshoe', 'keyhole', 'soft']);
+
 function Frame({
   variant = 'keyhole',
   src,
@@ -149,20 +162,21 @@ function Frame({
   eager = false,
   placeholder = null,
 }) {
+  const isCSSArch = CSS_ARCH_VARIANTS.has(variant);
   const clipId = `frame-${variant}`;
-  const outlinePath = FRAME_OUTLINE_PATHS[variant] || FRAME_OUTLINE_PATHS.keyhole;
+  const outlinePath = FRAME_OUTLINE_PATHS[variant] || FRAME_OUTLINE_PATHS.multifoil;
   const outlineColor =
     tone === 'cream' ? 'rgba(242, 232, 208, 0.55)' :
     tone === 'forest' ? 'rgba(42, 58, 46, 0.5)' :
     'rgba(201, 169, 97, 0.85)';
 
-  // Use 100x(100/aspect) viewBox for the outline to match the masked region
-  const outlineHeight = 100 / aspect;
-
   return (
     <figure className={`mw-frame mw-frame--${variant} ${className}`} style={{ aspectRatio: aspect, ...style }}>
-      <div className="mw-frame__shadow" aria-hidden="true" />
-      <div className="mw-frame__clip" style={{ clipPath: `url(#${clipId})`, WebkitClipPath: `url(#${clipId})` }}>
+      {!isCSSArch && <div className="mw-frame__shadow" aria-hidden="true" />}
+      <div
+        className="mw-frame__clip"
+        style={isCSSArch ? {} : { clipPath: `url(#${clipId})`, WebkitClipPath: `url(#${clipId})` }}
+      >
         {src ? (
           <img
             src={src}
@@ -176,16 +190,19 @@ function Frame({
           </div>
         )}
       </div>
-      <svg
-        className="mw-frame__outline"
-        viewBox={`0 0 100 ${outlineHeight === Infinity ? 100 : 100}`}
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path d={outlinePath} fill="none" stroke={outlineColor} strokeWidth="0.6" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 1.5 }} />
-        {/* Inner gold hairline */}
-        <path d={outlinePath} fill="none" stroke={outlineColor} strokeWidth="0.3" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 0.5, opacity: 0.6 }} transform="translate(2 2) scale(0.96 0.96)" />
-      </svg>
+      {isCSSArch ? (
+        <div className="mw-frame__border" aria-hidden="true" />
+      ) : (
+        <svg
+          className="mw-frame__outline"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d={outlinePath} fill="none" stroke={outlineColor} strokeWidth="0.6" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 1.5 }} />
+          <path d={outlinePath} fill="none" stroke={outlineColor} strokeWidth="0.3" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" style={{ strokeWidth: 0.5, opacity: 0.6 }} transform="translate(2 2) scale(0.96 0.96)" />
+        </svg>
+      )}
       {caption && <figcaption className="mw-frame__caption">{caption}</figcaption>}
     </figure>
   );
